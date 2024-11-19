@@ -1,0 +1,87 @@
+{% extends "partials/master.html" %}
+{% block content %}
+
+<div class="container mt-5">
+
+
+    <h5>Hello, templates</h5>
+
+    <!-- Start members table -->
+    <h5>Members</h5>
+    <table class="table table-hover mt-3">
+  
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Languages</th>
+                <th>Birth date</th>
+                <th>Bio</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.get_gender_display }}</td>
+                <td>{{ member.languages }}</td>
+                <td>{{ member.birth_date|date:"F j, Y" }}</td>
+                <td>{{ member.bio }}</td>
+                <td>
+                    <a href="" class="btn btn-outline-primary">Edit</a>
+                    <a href="" class="btn btn-outline-success">view</a>
+                    <a href="" class="btn btn-outline-danger">Remove</a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+
+
+    </table>
+    <!-- End members table -->
+    
+    <hr>
+    <!-- Start Groups Table -->
+    <table class="table table-hover mt-5">
+        <h5>Groups</h5>
+  
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Group Name</th>
+                <th>Leader</th>
+                
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for group in groups %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ group.name }}</td>
+                <td>{{ group.leader }}</td>
+                <td>
+                    <a href="" class="btn btn-outline-primary">Edit</a>
+                    <a href="" class="btn btn-outline-success">view</a>
+                    <a href="" class="btn btn-outline-danger">Remove</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- End groups table-->
+                
+                
+                
+
+
+
+</div>
+
+{% endblock content %}
