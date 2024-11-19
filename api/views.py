@@ -35,9 +35,32 @@ def memberList(requset):
 
 @api_view(['POST'])
 def memberCreate(request):
-    members = Member.objects.all()
-    serializer = MemberSerializer(members, many=True)
+    serializer = MemberSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
     return Response(serializer.data)
+
+@api_view(['GET'])
+def memberDetail(request, pk):
+    member = Member.objects.get(id=pk)
+    serializer = MemberSerializer(member, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def memberUpdate(request, pk):
+    member = Member.objects.get(id=pk)
+    serializer = MemberSerializer(instance=member, data=request.data)
+    
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def memberDelete(requset, pk):
+    member = Member.objects.get(id=pk)
+    member.delete()
+    return Response('Member have benn deleted successfully!')
 
 @api_view(['GET'])
 def GroupList(request):

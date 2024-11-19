@@ -13,6 +13,9 @@ urlpatterns = [
     # members
     path('member-list/', views.memberList, name='member-lists'),
     path('member-create/', views.memberCreate, name='member-create'),
+    path('member-detail/<str:pk>/', views.memberDetail, name='member-detail'),
+    path('member-update/<str:pk>/', views.memberUpdate, name='member-update'),
+    path('member-delete/<str:pk>/', views.memberDelete, name='member-delete'),
     
     
     # path('member-list', views.MemberList, name='member-lists'),
