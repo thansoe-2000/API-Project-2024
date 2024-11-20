@@ -1,0 +1,42 @@
+{% extends 'partials/master.html' %}
+{% block content %}
+
+<div class="container mt-5">
+
+ <!-- Start Groups Table -->
+    <table class="table table-hover mt-5">
+        <h3>Groups</h3>
+  
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Group Name</th>
+                <th>Leader</th>
+                <th>Profile</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+                
+
+        <tbody>
+            {% for group in groups %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ group.name }}</td>
+                <td>{{ group.leader }}</td>
+                <td><img src="{{ group.image.url }}" alt="" width="100" height="100" style="border-radius: 50px;"></td>
+                <td>
+                    <a href="" class="btn btn-outline-primary">Edit</a>
+                    <a href="" class="btn btn-outline-success">view</a>
+                    <a href="" class="btn btn-outline-danger">Remove</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'download_group' %}" class="btn btn-success">Download Group PDF</a>
+
+</div>
+
+    <!-- End groups table-->
+{% endblock content %}

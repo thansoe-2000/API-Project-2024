@@ -3,7 +3,7 @@ from .models import Member, Group
 # Register your models here.
 
 class MemberAdmin(admin.ModelAdmin):
-    list_display=('name','gender', 'languages', 'birth_date','bio', )
+    list_display=('name','gender', 'languages','groups','birth_date','bio', )
     
 class GroupAdmin(admin.ModelAdmin):
     list_display=('name', 'leader', 'image')

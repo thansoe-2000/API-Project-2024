@@ -16,6 +16,7 @@
                 <th>Name</th>
                 <th>Gender</th>
                 <th>Languages</th>
+                <th>Group</th>
                 <th>Birth date</th>
                 <th>Bio</th>
                 <th>Action</th>
@@ -29,6 +30,7 @@
                 <td>{{ member.name }}</td>
                 <td>{{ member.get_gender_display }}</td>
                 <td>{{ member.languages }}</td>
+                <td>{{ member.groups }}</td>
                 <td>{{ member.birth_date|date:"F j, Y" }}</td>
                 <td>{{ member.bio }}</td>
                 <td>
@@ -39,45 +41,17 @@
 
             </tr>
             {% endfor %}
+
+
         </tbody>
-
-
+        
+        
     </table>
+    <a href="{% url 'download_member' %}" class="btn btn-success">Download Member</a>
     <!-- End members table -->
     
     <hr>
-    <!-- Start Groups Table -->
-    <table class="table table-hover mt-5">
-        <h5>Groups</h5>
-  
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Group Name</th>
-                <th>Leader</th>
-                <th>Profile</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-                
-
-        <tbody>
-            {% for group in groups %}
-            <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ group.name }}</td>
-                <td>{{ group.leader }}</td>
-                <td><img src="{{ group.image.url }}" alt="" width="100" height="100" style="border-radius: 50px;"></td>
-                <td>
-                    <a href="" class="btn btn-outline-primary">Edit</a>
-                    <a href="" class="btn btn-outline-success">view</a>
-                    <a href="" class="btn btn-outline-danger">Remove</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <!-- End groups table-->
+   
                 
                 
                 
